@@ -62,6 +62,7 @@ btnZero.grid(row=4, columnspan=2)
 btnDecimal = Button(buttons, text='.', height=3, width=10)
 btnEqual = Button(buttons, text='.', height=3, width=10)
 
-
+btnDecimal.grid(row=4, column=2)
+btnEqual.grid(row=4, column=3)
 
 root.mainloop()
