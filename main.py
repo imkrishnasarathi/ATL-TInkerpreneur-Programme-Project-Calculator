@@ -57,6 +57,6 @@ btnAdd.grid(row=3, column=3)
 # Fifth Row
 
 btnZero = Button(buttons, text='0', height=3, width=24)
-
+btnZero.grid(row=4, columnspan=2)
 
 root.mainloop()
