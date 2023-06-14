@@ -12,7 +12,7 @@ buttons.grid(columnspan=4, row=1)
 
 # First row
 
-btnClear = Button(buttons, text='C', width=30, height=3)
+btnClear = Button(buttons, text='C', width=37, height=3)
 btnClear.grid(row=0, columnspan=3)
 
 btnDivide = Button(buttons, text='/', height=3, width=10)
@@ -20,6 +20,15 @@ btnDivide.grid(row=0, column=3)
 
 # Second Row
 
+btnSeven = Button(buttons, text='7', height=3, width=10)
+btnEight = Button(buttons, text='8', height=3, width=10)
+btnNine = Button(buttons, text='9', height=3, width=10)
+btnMultiply = Button(buttons, text='*', height=3, width=10)
+
+btnSeven.grid(row=1, column=0)
+btnEight.grid(row=1, column=1)
+btnNine.grid(row=1, column=2)
+btnMultiply.grid(row=1, column=3)
 
 
 root.mainloop()
