@@ -57,11 +57,10 @@ btnAdd.grid(row=3, column=3)
 # Fifth Row
 
 btnZero = Button(buttons, text='0', height=5, width=24)
-btnZero.grid(row=4, columnspan=2)
-
 btnDecimal = Button(buttons, text='.', height=5, width=10)
 btnEqual = Button(buttons, text='.', height=5, width=10)
 
+btnZero.grid(row=4, columnspan=2)
 btnDecimal.grid(row=4, column=2)
 btnEqual.grid(row=4, column=3)
 
