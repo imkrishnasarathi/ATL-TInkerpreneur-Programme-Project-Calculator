@@ -59,4 +59,7 @@ btnAdd.grid(row=3, column=3)
 btnZero = Button(buttons, text='0', height=3, width=24)
 btnZero.grid(row=4, columnspan=2)
 
+btnDecimal = Button(buttons, text='.', height=3, width=10)
+
+
 root.mainloop()
