@@ -7,4 +7,9 @@ root.maxsize(500, 700)
 display = Label(root, text='0', font="monospace 25 bold", background='#517059', height=2, anchor='w')
 display.grid(columnspan=4, row=0, pady=35, padx=23)
 
+buttons = Frame(root, bd=0, highlightbackground="black", highlightcolor="black", highlightthickness=1)
+buttons.grid(columnspan=4, row=1)
+
+
+
 root.mainloop()
