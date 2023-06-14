@@ -42,5 +42,17 @@ btnFive.grid(row=2, column=1)
 btnSix.grid(row=2, column=2)
 btnMinus.grid(row=2, column=3)
 
+# Fourth Row
+
+btnOne = Button(buttons, text='1', height=3, width=10)
+btnTwo = Button(buttons, text='2', height=3, width=10)
+btnThree = Button(buttons, text='3', height=3, width=10)
+btnAdd = Button(buttons, text='+', height=3, width=10)
+
+btnOne.grid(row=3, column=0)
+btnTwo.grid(row=3, column=1)
+btnThree.grid(row=3, column=2)
+btnAdd.grid(row=3, column=3)
+
 
 root.mainloop()
