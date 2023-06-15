@@ -19,6 +19,8 @@ def onclick(btn):
     if btn[0] == "operator":
         if shouldResetDisplay:
             display.config(text=str(calculate(num1, num2, btn[1])))
+        else:
+            display.config(text='0')
 
 def calculate(n1, n2, operator):
     match operator:
