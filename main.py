@@ -14,13 +14,23 @@ buttons.grid(columnspan=4, row=1)
 shouldResetDisplay = False
 num1 = 0
 num2 = 0
+displayText = '0'
 
 def onclick(btn):
+    global displayText
     if btn[0] == "operator":
         if shouldResetDisplay:
             display.config(text=str(calculate(num1, num2, btn[1])))
         else:
             display.config(text='0')
+            displayText = '0'
+    elif btn[0] == "number":
+        if displayText == '0':
+            display.config(text=btn[1])
+            displayText = btn[1]
+        else:
+            display.config(text=displayText+btn[1])
+            displayText = displayText+btn[1]
 
 def calculate(n1, n2, operator):
     match operator:
@@ -43,10 +53,10 @@ btnDivide.grid(row=0, column=3)
 
 # Second Row
 
-btnSeven = Button(buttons, text='7', height=5, width=10, command=lambda:onclick(['number', '7']))
-btnEight = Button(buttons, text='8', height=5, width=10, command=lambda:onclick(['number', '8']))
-btnNine = Button(buttons, text='9', height=5, width=10, command=lambda:onclick(['number', '9']))
-btnMultiply = Button(buttons, text='*', height=5, width=10, command=lambda:onclick(['operator', '*']))
+btnSeven = Button(buttons, text='7', height=5, width=10, command=lambda: onclick(['number', '7']))
+btnEight = Button(buttons, text='8', height=5, width=10, command=lambda: onclick(['number', '8']))
+btnNine = Button(buttons, text='9', height=5, width=10, command=lambda: onclick(['number', '9']))
+btnMultiply = Button(buttons, text='*', height=5, width=10, command=lambda: onclick(['operator', '*']))
 
 btnSeven.grid(row=1, column=0)
 btnEight.grid(row=1, column=1)
