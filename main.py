@@ -43,9 +43,9 @@ btnDivide.grid(row=0, column=3)
 
 # Second Row
 
-btnSeven = Button(buttons, text='7', height=5, width=10)
-btnEight = Button(buttons, text='8', height=5, width=10)
-btnNine = Button(buttons, text='9', height=5, width=10)
+btnSeven = Button(buttons, text='7', height=5, width=10, command=lambda:onclick(['number', '7']))
+btnEight = Button(buttons, text='8', height=5, width=10, command=lambda:onclick(['number', '8']))
+btnNine = Button(buttons, text='9', height=5, width=10, command=lambda:onclick(['number', '9']))
 btnMultiply = Button(buttons, text='*', height=5, width=10, command=lambda:onclick(['operator', '*']))
 
 btnSeven.grid(row=1, column=0)
@@ -55,9 +55,9 @@ btnMultiply.grid(row=1, column=3)
 
 # Third Row
 
-btnFour = Button(buttons, text='4', height=5, width=10)
-btnFive = Button(buttons, text='5', height=5, width=10)
-btnSix = Button(buttons, text='6', height=5, width=10)
+btnFour = Button(buttons, text='4', height=5, width=10, command=lambda:onclick(['number', '4']))
+btnFive = Button(buttons, text='5', height=5, width=10, command=lambda:onclick(['number', '5']))
+btnSix = Button(buttons, text='6', height=5, width=10, command=lambda:onclick(['number', '6']))
 btnMinus = Button(buttons, text='-', height=5, width=10, command=lambda:onclick(['operator', '-']))
 
 btnFour.grid(row=2, column=0)
@@ -67,9 +67,9 @@ btnMinus.grid(row=2, column=3)
 
 # Fourth Row
 
-btnOne = Button(buttons, text='1', height=5, width=10)
-btnTwo = Button(buttons, text='2', height=5, width=10)
-btnThree = Button(buttons, text='3', height=5, width=10)
+btnOne = Button(buttons, text='1', height=5, width=10, command=lambda:onclick(['number', '1']))
+btnTwo = Button(buttons, text='2', height=5, width=10, command=lambda:onclick(['number', '2']))
+btnThree = Button(buttons, text='3', height=5, width=10, command=lambda:onclick(['number', '3']))
 btnAdd = Button(buttons, text='+', height=5, width=10, command=lambda:onclick(['operator', '+']))
 
 btnOne.grid(row=3, column=0)
