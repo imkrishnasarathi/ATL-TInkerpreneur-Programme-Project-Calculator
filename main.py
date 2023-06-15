@@ -11,10 +11,25 @@ buttons = Frame(root, bd=0, highlightbackground="black", highlightcolor="black",
 buttons.grid(columnspan=4, row=1)
 
 # functions
+shouldResetDisplay = False
+num1 = 0
+num2 = 0
 
-def onClick(btn):
-    pass
+def onclick(btn):
+    if btn[0] == "operator":
+        if shouldResetDisplay:
+            display.config(text=str(calculate(num1, num2, btn[1])))
 
+def calculate(n1, n2, operator):
+    match operator:
+        case '+':
+            return n1 + n2
+        case '-':
+            return n1 - n2
+        case '/':
+            return n1 / n2
+        case '*':
+            return n1 * n2
 
 # First row
 
