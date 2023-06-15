@@ -35,10 +35,10 @@ def calculate(n1, n2, operator):
 
 # First row
 
-btnClear = Button(buttons, text='C', width=37, height=5)
+btnClear = Button(buttons, text='C', width=37, height=5, command=lambda:onclick(['clear', 'C']))
 btnClear.grid(row=0, columnspan=3)
 
-btnDivide = Button(buttons, text='/', height=5, width=10)
+btnDivide = Button(buttons, text='/', height=5, width=10, command=lambda:onclick(['operator', '/']))
 btnDivide.grid(row=0, column=3)
 
 # Second Row
@@ -46,7 +46,7 @@ btnDivide.grid(row=0, column=3)
 btnSeven = Button(buttons, text='7', height=5, width=10)
 btnEight = Button(buttons, text='8', height=5, width=10)
 btnNine = Button(buttons, text='9', height=5, width=10)
-btnMultiply = Button(buttons, text='*', height=5, width=10)
+btnMultiply = Button(buttons, text='*', height=5, width=10, command=lambda:onclick(['operator', '*']))
 
 btnSeven.grid(row=1, column=0)
 btnEight.grid(row=1, column=1)
@@ -58,7 +58,7 @@ btnMultiply.grid(row=1, column=3)
 btnFour = Button(buttons, text='4', height=5, width=10)
 btnFive = Button(buttons, text='5', height=5, width=10)
 btnSix = Button(buttons, text='6', height=5, width=10)
-btnMinus = Button(buttons, text='-', height=5, width=10)
+btnMinus = Button(buttons, text='-', height=5, width=10, command=lambda:onclick(['operator', '-']))
 
 btnFour.grid(row=2, column=0)
 btnFive.grid(row=2, column=1)
@@ -70,7 +70,7 @@ btnMinus.grid(row=2, column=3)
 btnOne = Button(buttons, text='1', height=5, width=10)
 btnTwo = Button(buttons, text='2', height=5, width=10)
 btnThree = Button(buttons, text='3', height=5, width=10)
-btnAdd = Button(buttons, text='+', height=5, width=10)
+btnAdd = Button(buttons, text='+', height=5, width=10, command=lambda:onclick(['operator', '+']))
 
 btnOne.grid(row=3, column=0)
 btnTwo.grid(row=3, column=1)
