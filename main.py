@@ -10,6 +10,12 @@ display.grid(columnspan=4, row=0, pady=35, padx=23)
 buttons = Frame(root, bd=0, highlightbackground="black", highlightcolor="black", highlightthickness=1, width=200, height=100)
 buttons.grid(columnspan=4, row=1)
 
+# functions
+
+def onClick(btn):
+    pass
+
+
 # First row
 
 btnClear = Button(buttons, text='C', width=37, height=5)
