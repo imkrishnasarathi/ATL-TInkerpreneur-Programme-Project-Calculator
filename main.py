@@ -79,9 +79,9 @@ btnAdd.grid(row=3, column=3)
 
 # Fifth Row
 
-btnZero = Button(buttons, text='0', height=5, width=24)
-btnDecimal = Button(buttons, text='.', height=5, width=10)
-btnEqual = Button(buttons, text='.', height=5, width=10)
+btnZero = Button(buttons, text='0', height=5, width=24, command=lambda:onclick(['number', '0']))
+btnDecimal = Button(buttons, text='.', height=5, width=10, command=lambda:onclick(['decimal', '.']))
+btnEqual = Button(buttons, text='.', height=5, width=10, command=lambda:onclick(['equal', '=']))
 
 btnZero.grid(row=4, columnspan=2)
 btnDecimal.grid(row=4, column=2)
