@@ -4,7 +4,8 @@ root = Tk()
 root.minsize(500, 700)
 root.maxsize(500, 700)
 
-display = Label(root, text='0', font="monospace 25 bold", background='#709e7c', height=2, anchor='w', width=22)
+display = Label(root, text='0', font="monospace 25 bold", background='#709e7c', height=2, anchor='nw', width=22)
+displayHeight = 2
 display.grid(columnspan=4, row=0, pady=35, padx=23)
 
 buttons = Frame(root, bd=0, highlightbackground="black", highlightcolor="black", highlightthickness=1, width=200, height=100)
@@ -18,6 +19,7 @@ displayText = '0'
 
 def onclick(btn):
     global displayText
+    global displayHeight
     if btn[0] == "operator":
         if shouldResetDisplay:
             display.config(text=str(calculate(num1, num2, btn[1])))
@@ -25,12 +27,22 @@ def onclick(btn):
             display.config(text='0')
             displayText = '0'
     elif btn[0] == "number":
+        if len(displayText) % 22 == 0:
+            display.config(height=displayHeight+1)
+            displayHeight = displayHeight + 1
+            displayText = displayText + '\n'
         if displayText == '0':
             display.config(text=btn[1])
             displayText = btn[1]
         else:
             display.config(text=displayText+btn[1])
             displayText = displayText+btn[1]
+
+    elif btn[0] == "clear":
+        display.config(text="0")
+        displayText = '0'
+        display.config(height=2)
+        displayHeight = 2
 
 def calculate(n1, n2, operator):
     match operator:
@@ -45,7 +57,7 @@ def calculate(n1, n2, operator):
 
 # First row
 
-btnClear = Button(buttons, text='C', width=37, height=5, command=lambda:onclick(['clear', 'C']))
+btnClear = Button(buttons, text='C',width=37, height=5, command=lambda:onclick(['clear', 'C']))
 btnClear.grid(row=0, columnspan=3)
 
 btnDivide = Button(buttons, text='/', height=5, width=10, command=lambda:onclick(['operator', '/']))
