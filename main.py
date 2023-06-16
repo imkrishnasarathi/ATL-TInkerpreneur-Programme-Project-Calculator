@@ -19,13 +19,14 @@ displayText = '0'
 operator = ''
 
 def onclick(btn):
-    global num1, num2, shouldResetDisplay,displayHeight, displayText
+    global num1, num2, shouldResetDisplay,displayHeight, displayText, operator
 
     if btn[0] == "equal":
         if num1!=0 and num2!=0:
             calculate(num1, num2)
 
     if btn[0] == "operator":
+        operator = btn[1]
         if num1!=0:
             num2 = int(displayText)
         else:
@@ -64,6 +65,7 @@ def onclick(btn):
         displayHeight = 2
 
 def calculate(n1, n2):
+    global operator
     match operator:
         case '+':
             return n1 + n2
