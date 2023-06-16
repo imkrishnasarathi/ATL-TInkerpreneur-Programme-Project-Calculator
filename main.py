@@ -16,17 +16,29 @@ shouldResetDisplay = False
 num1 = 0
 num2 = 0
 displayText = '0'
+operator = ''
 
 def onclick(btn):
-    global displayText
-    global displayHeight
+    global num1, num2, shouldResetDisplay,displayHeight, displayText
+
+    if btn[0] == "equal":
+        if num1!=0 and num2!=0:
+            calculate(num1, num2)
+
     if btn[0] == "operator":
+        if num1!=0:
+            num2 = int(displayText)
+        else:
+            num1 = int(displayText)
         if shouldResetDisplay:
-            display.config(text=str(calculate(num1, num2, btn[1])))
+            display.config(text=str(calculate(num1, num2)))
+            displayText = str(calculate(num1, num2))
         else:
             display.config(text='0')
             displayText = '0'
+        shouldResetDisplay = False
     elif btn[0] == "number":
+        shouldResetDisplay = True
         if len(displayText) % 22 == 0:
             display.config(height=displayHeight+1)
             displayHeight = displayHeight + 1
@@ -43,12 +55,15 @@ def onclick(btn):
                 displayText = displayText+btn[1]
 
     elif btn[0] == "clear":
+        num1 = 0
+        num2 = 0
+        shouldResetDisplay = False
         display.config(text="0")
         displayText = '0'
         display.config(height=2)
         displayHeight = 2
 
-def calculate(n1, n2, operator):
+def calculate(n1, n2):
     match operator:
         case '+':
             return n1 + n2
@@ -58,6 +73,8 @@ def calculate(n1, n2, operator):
             return n1 / n2
         case '*':
             return n1 * n2
+        case '':
+            return ''
 
 # First row
 
