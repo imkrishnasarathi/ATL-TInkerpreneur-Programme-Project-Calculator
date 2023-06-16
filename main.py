@@ -100,10 +100,10 @@ btnMultiply.grid(row=1, column=3)
 
 # Third Row
 
-btnFour = Button(buttons, text='4', height=5, width=10, command=lambda:onclick(['number', '4']))
-btnFive = Button(buttons, text='5', height=5, width=10, command=lambda:onclick(['number', '5']))
-btnSix = Button(buttons, text='6', height=5, width=10, command=lambda:onclick(['number', '6']))
-btnMinus = Button(buttons, text='-', height=5, width=10, command=lambda:onclick(['operator', '-']))
+btnFour = Button(buttons, text='4', height=5, width=10, command=lambda: onclick(['number', '4']))
+btnFive = Button(buttons, text='5', height=5, width=10, command=lambda: onclick(['number', '5']))
+btnSix = Button(buttons, text='6', height=5, width=10, command=lambda: onclick(['number', '6']))
+btnMinus = Button(buttons, text='-', height=5, width=10, command=lambda: onclick(['operator', '-']))
 
 btnFour.grid(row=2, column=0)
 btnFive.grid(row=2, column=1)
@@ -112,10 +112,10 @@ btnMinus.grid(row=2, column=3)
 
 # Fourth Row
 
-btnOne = Button(buttons, text='1', height=5, width=10, command=lambda:onclick(['number', '1']))
-btnTwo = Button(buttons, text='2', height=5, width=10, command=lambda:onclick(['number', '2']))
-btnThree = Button(buttons, text='3', height=5, width=10, command=lambda:onclick(['number', '3']))
-btnAdd = Button(buttons, text='+', height=5, width=10, command=lambda:onclick(['operator', '+']))
+btnOne = Button(buttons, text='1', height=5, width=10, command=lambda:  onclick(['number', '1']))
+btnTwo = Button(buttons, text='2', height=5, width=10, command=lambda:  onclick(['number', '2']))
+btnThree = Button(buttons, text='3', height=5, width=10, command=lambda:  onclick(['number', '3']))
+btnAdd = Button(buttons, text='+', height=5, width=10, command=lambda:  onclick(['operator', '+']))
 
 btnOne.grid(row=3, column=0)
 btnTwo.grid(row=3, column=1)
@@ -124,12 +124,13 @@ btnAdd.grid(row=3, column=3)
 
 # Fifth Row
 
-btnZero = Button(buttons, text='0', height=5, width=24, command=lambda:onclick(['number', '0']))
-btnDecimal = Button(buttons, text='.', height=5, width=10, command=lambda:onclick(['decimal', '.']))
-btnEqual = Button(buttons, text='=', height=5, width=10, command=lambda:onclick(['equal', '=']))
+btnZero = Button(buttons, text='0', height=5, width=24, command=lambda: onclick(['number', '0']))
+btnDecimal = Button(buttons, text='.', height=5, width=10, command=lambda: onclick(['decimal', '.']))
+btnEqual = Button(buttons, text='=', height=5, width=10, command=lambda: onclick(['equal', '=']))
 
 btnZero.grid(row=4, columnspan=2)
 btnDecimal.grid(row=4, column=2)
 btnEqual.grid(row=4, column=3)
 
 root.mainloop()
+
