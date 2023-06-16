@@ -31,12 +31,16 @@ def onclick(btn):
             display.config(height=displayHeight+1)
             displayHeight = displayHeight + 1
             displayText = displayText + '\n'
-        if displayText == '0':
-            display.config(text=btn[1])
-            displayText = btn[1]
+        if btn[1] == '0':
+            display.config(text=displayText + btn[1])
+            displayText = displayText + btn[1]
         else:
-            display.config(text=displayText+btn[1])
-            displayText = displayText+btn[1]
+            if displayText == '0':
+                display.config(text=btn[1])
+                displayText = btn[1]
+            else:
+                display.config(text=displayText+btn[1])
+                displayText = displayText+btn[1]
 
     elif btn[0] == "clear":
         display.config(text="0")
@@ -103,7 +107,7 @@ btnAdd.grid(row=3, column=3)
 
 btnZero = Button(buttons, text='0', height=5, width=24, command=lambda:onclick(['number', '0']))
 btnDecimal = Button(buttons, text='.', height=5, width=10, command=lambda:onclick(['decimal', '.']))
-btnEqual = Button(buttons, text='.', height=5, width=10, command=lambda:onclick(['equal', '=']))
+btnEqual = Button(buttons, text='=', height=5, width=10, command=lambda:onclick(['equal', '=']))
 
 btnZero.grid(row=4, columnspan=2)
 btnDecimal.grid(row=4, column=2)
