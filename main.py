@@ -17,27 +17,17 @@ num1 = 0
 num2 = 0
 displayText = '0'
 operator = ''
+periodEntered = False
 
 def onclick(btn):
-    global num1, num2, shouldResetDisplay,displayHeight, displayText, operator
+    global num1, num2, periodEntered, shouldResetDisplay,displayHeight, displayText, operator
 
     if btn[0] == "equal":
         if num1!=0 and num2!=0:
             calculate(num1, num2)
 
     if btn[0] == "operator":
-        operator = btn[1]
-        if num1!=0:
-            num2 = int(displayText)
-        else:
-            num1 = int(displayText)
-        if shouldResetDisplay:
-            display.config(text=str(calculate(num1, num2)))
-            displayText = str(calculate(num1, num2))
-        else:
-            display.config(text='0')
-            displayText = '0'
-        shouldResetDisplay = False
+        periodEntered = False
 
     elif btn[0] == "number":
         if shouldResetDisplay:
@@ -53,6 +43,7 @@ def onclick(btn):
     elif btn[0] == "clear":
         num1 = 0
         num2 = 0
+        periodEntered = False
         shouldResetDisplay = False
         operator = ''
         display.config(text="0")
