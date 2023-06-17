@@ -9,7 +9,7 @@ display = Label(root, text='0', font="monospace 25 bold", background='#709e7c', 
 displayHeight = 2
 display.grid(columnspan=4, row=0, pady=35, padx=23)
 
-buttons = Frame(root, bd=0, highlightbackground="black", highlightcolor="black", highlightthickness=1, width=190, height=100)
+buttons = Frame(root, bd=0, width=190, height=100, background="darkgrey")
 buttons.grid(columnspan=4, row=1)
 
 # functions
