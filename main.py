@@ -15,7 +15,7 @@ buttons.grid(columnspan=4, row=1)
 shouldResetDisplay = False
 num1 = None
 displayText = '0'
-operator = ''
+operator = None
 periodEntered = False
 
 def onclick(btn):
@@ -23,7 +23,7 @@ def onclick(btn):
 
     if btn[0] == "operator":
         periodEntered = False
-        if operator != '' and (not shouldResetDisplay):
+        if operator != None and (not shouldResetDisplay):
             calculate()
         operator = btn[1]
         num1 = float(displayText)
@@ -45,8 +45,7 @@ def onclick(btn):
         num1 = None
         periodEntered = False
         shouldResetDisplay = False
-        operator = ''
-        display.config(text="0")
+        operator = None
         displayText = '0'
         display.config(height=2)
         displayHeight = 2
@@ -70,8 +69,8 @@ def onclick(btn):
         display.config(text=displayText)
 
 def calculate():
-    global operator, num1
-    if operator == '' or num1 == None:
+    global operator, num1, displayText
+    if operator == None or num1 == None:
         return
     num2 = float(displayText)
     res = None
