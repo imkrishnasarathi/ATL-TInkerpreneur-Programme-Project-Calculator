@@ -87,7 +87,11 @@ def calculate():
         case '-':
             res = num1 - num2
         case '/':
-            res = num1 / num2
+            try:
+                res = num1 / num2
+            except ZeroDivisionError as e:
+                displayText = "Cannot divide by Zero"
+                display.config(text=displayText)
         case '*':
             res = num1 * num2
         case '':
