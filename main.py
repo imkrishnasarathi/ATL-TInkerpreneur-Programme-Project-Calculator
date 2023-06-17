@@ -3,12 +3,13 @@ from tkinter import *
 root = Tk()
 root.minsize(500, 700)
 root.maxsize(500, 700)
+root.config(background="darkgrey")
 
 display = Label(root, text='0', font="monospace 25 bold", background='#709e7c', height=2, anchor='nw', width=22)
 displayHeight = 2
 display.grid(columnspan=4, row=0, pady=35, padx=23)
 
-buttons = Frame(root, bd=0, highlightbackground="black", highlightcolor="black", highlightthickness=1, width=200, height=100)
+buttons = Frame(root, bd=0, highlightbackground="black", highlightcolor="black", highlightthickness=1, width=190, height=100)
 buttons.grid(columnspan=4, row=1)
 
 # functions
@@ -102,7 +103,7 @@ def calculate():
     display.config(text=displayText)
 # First row
 
-btnClear = Button(buttons, text='C',width=37, font=(20), height=5, background="#333332", foreground="white", command=lambda:onclick(['clear', 'C']))
+btnClear = Button(buttons, text='C',width=30, font=(20), height=5, background="#333332", foreground="white", command=lambda:onclick(['clear', 'C']))
 btnClear.grid(row=0, columnspan=3)
 
 btnDivide = Button(buttons, text='/', font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda:onclick(['operator', '/']))
@@ -146,7 +147,7 @@ btnAdd.grid(row=3, column=3)
 
 # Fifth Row
 
-btnZero = Button(buttons, text='0', font=(20),height=5, width=24, background="#333332", foreground="white", command=lambda: onclick(['number', '0']))
+btnZero = Button(buttons, text='0', font=(20),height=5, width=19, background="#333332", foreground="white", command=lambda: onclick(['number', '0']))
 btnDecimal = Button(buttons, text='.', font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['decimal', '.']))
 btnEqual = Button(buttons, text='=', font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['equal', '=']))
 
