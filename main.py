@@ -1,8 +1,8 @@
 from tkinter import *
 
 root = Tk()
-root.minsize(500, 700)
-root.maxsize(500, 700)
+root.minsize(500, 720)
+root.maxsize(500, 720)
 root.config(background="darkgrey")
 
 display = Label(root, text='0', font="monospace 25 bold", background='#709e7c', height=2, anchor='nw', width=22)
