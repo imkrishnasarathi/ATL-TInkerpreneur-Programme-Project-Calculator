@@ -51,6 +51,24 @@ def onclick(btn):
         display.config(height=2)
         displayHeight = 2
 
+    elif btn[0] == "decimal":
+        if periodEntered != True:
+            if shouldResetDisplay or (displayText == "0"):
+                displayText = f"0{btn[1]}"
+                periodEntered = True
+                shouldResetDisplay = False
+            else:
+                if displayText == "0":
+                    periodEntered = True
+                    displayText = btn[1]
+                else:
+                    periodEntered = True
+                    displayText += btn[1]
+        else:
+            return
+
+        display.config(text=displayText)
+
 def calculate():
     global operator, num1
     if operator == '' or num1 == None:
