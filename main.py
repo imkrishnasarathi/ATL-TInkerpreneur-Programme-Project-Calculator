@@ -60,15 +60,15 @@ def calculate():
 
     match operator:
         case '+':
-            return num1 + num2
+            res = num1 + num2
         case '-':
-            return num1 - num2
+            res = num1 - num2
         case '/':
-            return num1 / num2
+            res = num1 / num2
         case '*':
-            return num1 * num2
+            res = num1 * num2
         case '':
-            return ''
+            res = ''
 
 # First row
 
