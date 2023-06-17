@@ -13,21 +13,22 @@ buttons.grid(columnspan=4, row=1)
 
 # functions
 shouldResetDisplay = False
-num1 = 0
-num2 = 0
+num1 = None
 displayText = '0'
 operator = ''
 periodEntered = False
 
 def onclick(btn):
-    global num1, num2, periodEntered, shouldResetDisplay,displayHeight, displayText, operator
-
-    if btn[0] == "equal":
-        if num1!=0 and num2!=0:
-            calculate(num1, num2)
+    global num1, periodEntered, shouldResetDisplay,displayHeight, displayText, operator
 
     if btn[0] == "operator":
         periodEntered = False
+        if operator != '' and (not shouldResetDisplay):
+            calculate()
+        operator = btn[1]
+        num1 = int(displayText)
+        shouldResetDisplay = True
+
 
     elif btn[0] == "number":
         if shouldResetDisplay:
@@ -41,8 +42,7 @@ def onclick(btn):
         display.config(text=displayText)
 
     elif btn[0] == "clear":
-        num1 = 0
-        num2 = 0
+        num1 = None
         periodEntered = False
         shouldResetDisplay = False
         operator = ''
@@ -51,17 +51,22 @@ def onclick(btn):
         display.config(height=2)
         displayHeight = 2
 
-def calculate(n1, n2):
+def calculate():
     global operator
+    if operator == '' or num1 == None:
+        return
+    num2 = int(displayText)
+    res = None
+
     match operator:
         case '+':
-            return n1 + n2
+            return
         case '-':
-            return n1 - n2
+            return
         case '/':
-            return n1 / n2
+            return
         case '*':
-            return n1 * n2
+            return
         case '':
             return ''
 
