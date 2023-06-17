@@ -66,7 +66,7 @@ def calculate():
         case '/':
             return num1 / num2
         case '*':
-            return
+            return num1 * num2
         case '':
             return ''
 
