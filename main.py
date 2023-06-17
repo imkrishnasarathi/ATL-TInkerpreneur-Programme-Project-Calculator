@@ -52,7 +52,7 @@ def onclick(btn):
         displayHeight = 2
 
 def calculate():
-    global operator
+    global operator, num1
     if operator == '' or num1 == None:
         return
     num2 = int(displayText)
