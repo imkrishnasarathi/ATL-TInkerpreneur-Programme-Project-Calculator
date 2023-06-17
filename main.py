@@ -93,6 +93,8 @@ def calculate():
             res = ''
     if int(res) == res:
         res = int(res)
+    displayText = res
+    display.config(text=displayText)
 # First row
 
 btnClear = Button(buttons, text='C',width=37, height=5, command=lambda:onclick(['clear', 'C']))
