@@ -12,7 +12,7 @@ display.grid(columnspan=4, row=0, pady=35, padx=23)
 buttons = Frame(root, bd=0, width=190, height=100, background="darkgrey")
 buttons.grid(columnspan=4, row=1)
 
-# functions
+# functions (logic)
 shouldResetDisplay = False
 num1 = None
 displayText = '0'
@@ -21,6 +21,11 @@ periodEntered = False
 
 def onclick(btn):
     global num1, periodEntered, shouldResetDisplay,displayHeight, displayText, operator
+
+    if len(displayText) > 21 and len(displayText) % 22 == 0:
+        displayHeight+=1
+        displayText+='\n'
+        display.config(height=displayHeight)
 
     if btn[0] == "operator":
         periodEntered = False
@@ -156,4 +161,3 @@ btnDecimal.grid(row=4, column=2)
 btnEqual.grid(row=4, column=3)
 
 root.mainloop()
-
