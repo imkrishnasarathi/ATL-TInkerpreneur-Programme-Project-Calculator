@@ -99,7 +99,7 @@ def calculate():
             res = ''
     if int(res) == res:
         res = int(res)
-    displayText = res
+    displayText = str(res)
     display.config(text=displayText)
 # First row
 
