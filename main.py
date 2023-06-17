@@ -26,7 +26,7 @@ def onclick(btn):
         if operator != '' and (not shouldResetDisplay):
             calculate()
         operator = btn[1]
-        num1 = int(displayText)
+        num1 = float(displayText)
         shouldResetDisplay = True
 
 
@@ -55,7 +55,7 @@ def calculate():
     global operator, num1
     if operator == '' or num1 == None:
         return
-    num2 = int(displayText)
+    num2 = float(displayText)
     res = None
 
     match operator:
