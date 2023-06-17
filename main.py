@@ -29,6 +29,11 @@ def onclick(btn):
         num1 = float(displayText)
         shouldResetDisplay = True
 
+    elif btn[0] == "equal":
+        if operator != None and (not shouldResetDisplay):
+            calculate()
+        operator = None
+
 
     elif btn[0] == "number":
         if shouldResetDisplay:
