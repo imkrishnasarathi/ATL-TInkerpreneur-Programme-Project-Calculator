@@ -43,6 +43,12 @@ def onclick(btn):
         if shouldResetDisplay:
             displayText = btn[1]
             shouldResetDisplay = False
+        else:
+            if displayText == "0":
+                displayText = btn[1]
+            else:
+                displayText += btn[1]
+        display.config(text=displayText)
 
     elif btn[0] == "clear":
         num1 = 0
