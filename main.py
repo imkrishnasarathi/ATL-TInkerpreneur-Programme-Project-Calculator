@@ -60,7 +60,7 @@ def calculate():
 
     match operator:
         case '+':
-            return
+            return num1 + num2
         case '-':
             return
         case '/':
