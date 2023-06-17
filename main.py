@@ -69,7 +69,8 @@ def calculate():
             res = num1 * num2
         case '':
             res = ''
-
+    if int(res) == res:
+        res = int(res)
 # First row
 
 btnClear = Button(buttons, text='C',width=37, height=5, command=lambda:onclick(['clear', 'C']))
