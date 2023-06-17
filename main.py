@@ -38,27 +38,17 @@ def onclick(btn):
             display.config(text='0')
             displayText = '0'
         shouldResetDisplay = False
+
     elif btn[0] == "number":
-        shouldResetDisplay = True
-        if len(displayText) % 22 == 0:
-            display.config(height=displayHeight+1)
-            displayHeight = displayHeight + 1
-            displayText = displayText + '\n'
-        if btn[1] == '0':
-            display.config(text=displayText + btn[1])
-            displayText = displayText + btn[1]
-        else:
-            if displayText == '0':
-                display.config(text=btn[1])
-                displayText = btn[1]
-            else:
-                display.config(text=displayText+btn[1])
-                displayText = displayText+btn[1]
+        if shouldResetDisplay:
+            displayText = btn[1]
+            shouldResetDisplay = False
 
     elif btn[0] == "clear":
         num1 = 0
         num2 = 0
         shouldResetDisplay = False
+        operator = ''
         display.config(text="0")
         displayText = '0'
         display.config(height=2)
