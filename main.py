@@ -52,6 +52,7 @@ def onclick(btn):
         shouldResetDisplay = False
         operator = None
         displayText = '0'
+        display.config(text=displayText)
         display.config(height=2)
         displayHeight = 2
 
