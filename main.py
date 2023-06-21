@@ -106,6 +106,12 @@ def calculate():
         res = int(res)
     displayText = str(res)
     display.config(text=displayText)
+
+#Images of buttons
+
+add, divide, subtract, multiply = PhotoImage('images/add.png'), PhotoImage('images/divide.png'), PhotoImage('images/subtract.png'), PhotoImage('images/multiply.png')
+
+
 # First row
 
 btnClear = Button(buttons, text='C',width=30, font=(20), height=5, background="#333332", foreground="white", command=lambda:onclick(['clear', 'C']))
