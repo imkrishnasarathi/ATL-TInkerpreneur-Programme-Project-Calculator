@@ -109,8 +109,15 @@ def calculate():
 
 #Images of buttons
 
-add, divide, subtract, multiply = PhotoImage('images/add.png'), PhotoImage('images/divide.png'), PhotoImage('images/subtract.png'), PhotoImage('images/multiply.png')
+addImg, divideImg, subtractImg, multiplyImg = PhotoImage('images/add.png'), PhotoImage('images/divide.png'), PhotoImage('images/subtract.png'), PhotoImage('images/multiply.png')
 
+oneImg, twoImg, threeImg = PhotoImage('images/one.png'), PhotoImage('images/two.png'), PhotoImage('images/three.png')
+fourImg, fiveImg, sixImg = PhotoImage('images/four.png'), PhotoImage('images/five.png'), PhotoImage('images/six.png')
+sevenImg, eightImg, nineImg = PhotoImage('images/seven.png'), PhotoImage('images/eight.png'), PhotoImage('images/nine.png')
+clearImg = PhotoImage('images/clear.png')
+equal = PhotoImage('images/equal.png')
+period = PhotoImage('images/period.png')
+zero = PhotoImage('images/zero.png')
 
 # First row
 
