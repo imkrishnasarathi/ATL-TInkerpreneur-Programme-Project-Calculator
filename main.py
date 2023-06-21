@@ -5,7 +5,7 @@ root.minsize(500, 720)
 root.maxsize(500, 720)
 root.config(background="darkgrey")
 
-display = Label(root, text='0', font="monospace 25 bold", background='#709e7c', height=2, anchor='nw', width=22)
+display = Label(root, text=0, font="monospace 25 bold", background='#709e7c', height=2, anchor='nw', width=22)
 displayHeight = 2
 display.grid(columnspan=4, row=0, pady=35, padx=23)
 
@@ -115,24 +115,24 @@ oneImg, twoImg, threeImg = PhotoImage('images/one.png'), PhotoImage('images/two.
 fourImg, fiveImg, sixImg = PhotoImage('images/four.png'), PhotoImage('images/five.png'), PhotoImage('images/six.png')
 sevenImg, eightImg, nineImg = PhotoImage('images/seven.png'), PhotoImage('images/eight.png'), PhotoImage('images/nine.png')
 clearImg = PhotoImage('images/clear.png')
-equal = PhotoImage('images/equal.png')
-period = PhotoImage('images/period.png')
-zero = PhotoImage('images/zero.png')
+equalImg = PhotoImage('images/equal.png')
+periodImg = PhotoImage('images/period.png')
+zeroImg = PhotoImage('images/zero.png')
 
 # First row
 
-btnClear = Button(buttons, text='C',width=30, font=(20), height=5, background="#333332", foreground="white", command=lambda:onclick(['clear', 'C']))
+btnClear = Button(buttons, image=clearImg,width=30, font=(20), height=5, background="#333332", foreground="white", command=lambda:onclick(['clear', 'C']))
 btnClear.grid(row=0, columnspan=3)
 
-btnDivide = Button(buttons, text='/', font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda:onclick(['operator', '/']))
+btnDivide = Button(buttons, image=divideImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda:onclick(['operator', '/']))
 btnDivide.grid(row=0, column=3)
 
 # Second Row
 
-btnSeven = Button(buttons, text='7', font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['number', '7']))
-btnEight = Button(buttons, text='8', font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['number', '8']))
-btnNine = Button(buttons, text='9', font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['number', '9']))
-btnMultiply = Button(buttons, text='*', font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['operator', '*']))
+btnSeven = Button(buttons, image=sevenImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['number', '7']))
+btnEight = Button(buttons, image=eightImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['number', '8']))
+btnNine = Button(buttons, image=nineImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['number', '9']))
+btnMultiply = Button(buttons, image=multiplyImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['operator', '*']))
 
 btnSeven.grid(row=1, column=0)
 btnEight.grid(row=1, column=1)
@@ -141,10 +141,10 @@ btnMultiply.grid(row=1, column=3)
 
 # Third Row
 
-btnFour = Button(buttons, text='4', font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['number', '4']))
-btnFive = Button(buttons, text='5', font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['number', '5']))
-btnSix = Button(buttons, text='6', font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['number', '6']))
-btnMinus = Button(buttons, text='-', font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['operator', '-']))
+btnFour = Button(buttons, image=fourImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['number', '4']))
+btnFive = Button(buttons, image=fiveImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['number', '5']))
+btnSix = Button(buttons, image=sixImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['number', '6']))
+btnMinus = Button(buttons, image=subtractImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['operator', '-']))
 
 btnFour.grid(row=2, column=0)
 btnFive.grid(row=2, column=1)
@@ -153,10 +153,10 @@ btnMinus.grid(row=2, column=3)
 
 # Fourth Row
 
-btnOne = Button(buttons, text='1', font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda:  onclick(['number', '1']))
-btnTwo = Button(buttons, text='2', font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda:  onclick(['number', '2']))
-btnThree = Button(buttons, text='3', font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda:  onclick(['number', '3']))
-btnAdd = Button(buttons, text='+', font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda:  onclick(['operator', '+']))
+btnOne = Button(buttons, image=oneImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda:  onclick(['number', '1']))
+btnTwo = Button(buttons, image=twoImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda:  onclick(['number', '2']))
+btnThree = Button(buttons, image=threeImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda:  onclick(['number', '3']))
+btnAdd = Button(buttons, image=addImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda:  onclick(['operator', '+']))
 
 btnOne.grid(row=3, column=0)
 btnTwo.grid(row=3, column=1)
@@ -165,9 +165,9 @@ btnAdd.grid(row=3, column=3)
 
 # Fifth Row
 
-btnZero = Button(buttons, text='0', font=(20),height=5, width=19, background="#333332", foreground="white", command=lambda: onclick(['number', '0']))
-btnDecimal = Button(buttons, text='.', font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['decimal', '.']))
-btnEqual = Button(buttons, text='=', font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['equal', '=']))
+btnZero = Button(buttons, image=zeroImg, font=(20),height=5, width=19, background="#333332", foreground="white", command=lambda: onclick(['number', '0']))
+btnDecimal = Button(buttons, image=periodImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['decimal', '.']))
+btnEqual = Button(buttons, image=equalImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['equal', '=']))
 
 btnZero.grid(row=4, columnspan=2)
 btnDecimal.grid(row=4, column=2)
