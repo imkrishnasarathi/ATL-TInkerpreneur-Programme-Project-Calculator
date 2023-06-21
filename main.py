@@ -1,15 +1,18 @@
-from tkinter import *
+from customtkinter import *
+import tkinter
 
-root = Tk()
-root.minsize(500, 720)
-root.maxsize(500, 720)
-root.config(background="darkgrey")
+set_appearance_mode("dark")
+set_default_color_theme("blue")
 
-display = Label(root, text=0, font="monospace 25 bold", background='#709e7c', height=2, anchor='nw', width=22)
+root = CTk()
+root.minsize(480, 620)
+root.maxsize(480, 620)
+
+display = CTkLabel(master=root,justify=LEFT, anchor=W, text='0', font=("monospace", 40), height=2, width=420)
 displayHeight = 2
 display.grid(columnspan=4, row=0, pady=35, padx=23)
 
-buttons = Frame(root, bd=0, width=190, height=100, background="darkgrey")
+buttons = CTkFrame(root, width=90, height=100)
 buttons.grid(columnspan=4, row=1)
 
 # functions (logic)
@@ -25,7 +28,7 @@ def onclick(btn):
     if len(displayText) > 21 and len(displayText) % 22 == 0:
         displayHeight+=1
         displayText+='\n'
-        display.config(height=displayHeight)
+        display.configure(height=displayHeight)
 
     if btn[0] == "operator":
         periodEntered = False
@@ -50,7 +53,7 @@ def onclick(btn):
                 displayText = btn[1]
             else:
                 displayText += btn[1]
-        display.config(text=displayText)
+        display.configure(text=displayText)
 
     elif btn[0] == "clear":
         num1 = None
@@ -58,8 +61,8 @@ def onclick(btn):
         shouldResetDisplay = False
         operator = None
         displayText = '0'
-        display.config(text=displayText)
-        display.config(height=2)
+        display.configure(text=displayText)
+        display.configure(height=2)
         displayHeight = 2
 
     elif btn[0] == "decimal":
@@ -78,7 +81,7 @@ def onclick(btn):
         else:
             return
 
-        display.config(text=displayText)
+        display.configure(text=displayText)
 
 def calculate():
     global operator, num1, displayText
@@ -97,7 +100,7 @@ def calculate():
                 res = num1 / num2
             except ZeroDivisionError as e:
                 displayText = "Cannot divide by Zero"
-                display.config(text=displayText)
+                display.configure(text=displayText)
         case '*':
             res = num1 * num2
         case '':
@@ -105,34 +108,21 @@ def calculate():
     if int(res) == res:
         res = int(res)
     displayText = str(res)
-    display.config(text=displayText)
-
-#Images of buttons
-
-addImg, divideImg, subtractImg, multiplyImg = PhotoImage('images/add.png'), PhotoImage('images/divide.png'), PhotoImage('images/subtract.png'), PhotoImage('images/multiply.png')
-
-oneImg, twoImg, threeImg = PhotoImage('images/one.png'), PhotoImage('images/two.png'), PhotoImage('images/three.png')
-fourImg, fiveImg, sixImg = PhotoImage('images/four.png'), PhotoImage('images/five.png'), PhotoImage('images/six.png')
-sevenImg, eightImg, nineImg = PhotoImage('images/seven.png'), PhotoImage('images/eight.png'), PhotoImage('images/nine.png')
-clearImg = PhotoImage('images/clear.png')
-equalImg = PhotoImage('images/equal.png')
-periodImg = PhotoImage('images/period.png')
-zeroImg = PhotoImage('images/zero.png')
-
+    display.configure(text=displayText)
 # First row
 
-btnClear = Button(buttons, image=clearImg,width=30, font=(20), height=5, background="#333332", foreground="white", command=lambda:onclick(['clear', 'C']))
+btnClear = CTkButton(buttons, border_color="", corner_radius=12, border_width=4, text='C',width=360, font=('Helvetica', 20), height=100, command=lambda:onclick(['clear', 'C']))
 btnClear.grid(row=0, columnspan=3)
 
-btnDivide = Button(buttons, image=divideImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda:onclick(['operator', '/']))
+btnDivide = CTkButton(buttons, border_color="", corner_radius=12, border_width=4, text='/', font=('Helvetica', 20), height=100, width=120, command=lambda:onclick(['operator', '/']))
 btnDivide.grid(row=0, column=3)
 
 # Second Row
 
-btnSeven = Button(buttons, image=sevenImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['number', '7']))
-btnEight = Button(buttons, image=eightImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['number', '8']))
-btnNine = Button(buttons, image=nineImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['number', '9']))
-btnMultiply = Button(buttons, image=multiplyImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['operator', '*']))
+btnSeven = CTkButton(buttons, border_color="", corner_radius=12, border_width=4, text='7', font=('Helvetica', 20), height=100, width=120,command=lambda: onclick(['number', '7']))
+btnEight = CTkButton(buttons, border_color="", corner_radius=12, border_width=4, text='8', font=('Helvetica', 20), height=100, width=120, command=lambda: onclick(['number', '8']))
+btnNine = CTkButton(buttons, border_color="", corner_radius=12, border_width=4, text='9', font=('Helvetica', 20), height=100, width=120, command=lambda: onclick(['number', '9']))
+btnMultiply = CTkButton(buttons, border_color="", corner_radius=12, border_width=4,text='*', font=('Helvetica', 20), height=100, width=120, command=lambda: onclick(['operator', '*']))
 
 btnSeven.grid(row=1, column=0)
 btnEight.grid(row=1, column=1)
@@ -141,10 +131,10 @@ btnMultiply.grid(row=1, column=3)
 
 # Third Row
 
-btnFour = Button(buttons, image=fourImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['number', '4']))
-btnFive = Button(buttons, image=fiveImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['number', '5']))
-btnSix = Button(buttons, image=sixImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['number', '6']))
-btnMinus = Button(buttons, image=subtractImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['operator', '-']))
+btnFour = CTkButton(buttons, border_color="", corner_radius=12, border_width=4, text='4', font=('Helvetica', 20), height=100, width=120, command=lambda: onclick(['number', '4']))
+btnFive = CTkButton(buttons, border_color="", corner_radius=12, border_width=4, text='5', font=('Helvetica', 20), height=100, width=120, command=lambda: onclick(['number', '5']))
+btnSix = CTkButton(buttons, border_color="", corner_radius=12, border_width=4, text='6', font=('Helvetica', 20), height=100, width=120, command=lambda: onclick(['number', '6']))
+btnMinus = CTkButton(buttons, border_color="", corner_radius=12, border_width=4, text='-', font=('Helvetica', 20), height=100, width=120, command=lambda: onclick(['operator', '-']))
 
 btnFour.grid(row=2, column=0)
 btnFive.grid(row=2, column=1)
@@ -153,10 +143,10 @@ btnMinus.grid(row=2, column=3)
 
 # Fourth Row
 
-btnOne = Button(buttons, image=oneImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda:  onclick(['number', '1']))
-btnTwo = Button(buttons, image=twoImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda:  onclick(['number', '2']))
-btnThree = Button(buttons, image=threeImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda:  onclick(['number', '3']))
-btnAdd = Button(buttons, image=addImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda:  onclick(['operator', '+']))
+btnOne = CTkButton(buttons, border_color="", corner_radius=12, border_width=4, text='1', font=('Helvetica', 20), height=100, width=120, command=lambda:  onclick(['number', '1']))
+btnTwo = CTkButton(buttons, border_color="", corner_radius=12, border_width=4, text='2', font=('Helvetica', 20), height=100, width=120, command=lambda:  onclick(['number', '2']))
+btnThree = CTkButton(buttons, border_color="", corner_radius=12, border_width=4, text='3', font=('Helvetica', 20), height=100, width=120, command=lambda:  onclick(['number', '3']))
+btnAdd = CTkButton(buttons, border_color="", corner_radius=12, border_width=4, text='+', font=('Helvetica', 20), height=100, width=120, command=lambda:  onclick(['operator', '+']))
 
 btnOne.grid(row=3, column=0)
 btnTwo.grid(row=3, column=1)
@@ -165,9 +155,9 @@ btnAdd.grid(row=3, column=3)
 
 # Fifth Row
 
-btnZero = Button(buttons, image=zeroImg, font=(20),height=5, width=19, background="#333332", foreground="white", command=lambda: onclick(['number', '0']))
-btnDecimal = Button(buttons, image=periodImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['decimal', '.']))
-btnEqual = Button(buttons, image=equalImg, font=(20), height=5, width=8, background="#333332", foreground="white", command=lambda: onclick(['equal', '=']))
+btnZero = CTkButton(buttons, border_color="", corner_radius=12, border_width=4, text='0', font=('Helvetica', 20),height=100, width=240, command=lambda: onclick(['number', '0']))
+btnDecimal = CTkButton(buttons, border_color="", corner_radius=12, border_width=4, text='.', font=('Helvetica', 20), height=100, width=120, command=lambda: onclick(['decimal', '.']))
+btnEqual = CTkButton(buttons, border_color="", corner_radius=12, border_width=4, text='=', font=('Helvetica', 20), height=100, width=120, command=lambda: onclick(['equal', '=']))
 
 btnZero.grid(row=4, columnspan=2)
 btnDecimal.grid(row=4, column=2)
